@@ -40,7 +40,7 @@ public class DragAndDrop : MonoBehaviour
 
 			//convert the screen mouse position to world point and adjust with offset
 			var curPosition = Camera.main.ScreenToWorldPoint(curScreenSpace) + offset;
-			curPosition.y=0.0f; //set objects to ground level
+			curPosition.y=12.0f; //set objects to ground level
 			//update the position of the object in the world
 			Target.transform.position = curPosition;
 		}

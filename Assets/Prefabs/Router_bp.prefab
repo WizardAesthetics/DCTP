@@ -29,7 +29,7 @@ PrefabInstance:
     - target: {fileID: 1349123360086213901, guid: 06295c6d8c23c0d42b12f99fcd027269,
         type: 3}
       propertyPath: m_Name
-      value: untitled Variant
+      value: Router_bp
       objectReference: {fileID: 0}
     - target: {fileID: 1869798828911009719, guid: 06295c6d8c23c0d42b12f99fcd027269,
         type: 3}
@@ -106,7 +106,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8936674464645514499, guid: 06295c6d8c23c0d42b12f99fcd027269, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 06295c6d8c23c0d42b12f99fcd027269, type: 3}
 --- !u!1 &1332569085429247353 stripped
 GameObject:

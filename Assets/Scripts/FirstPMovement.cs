@@ -9,6 +9,7 @@ public class FirstPMovement : MonoBehaviour
     public CharacterController controller;
     public float speed = 12f;
 
+
     // Update is called once per frame
     void Update()
     {

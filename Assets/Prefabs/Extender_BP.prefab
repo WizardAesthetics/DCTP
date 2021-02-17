@@ -24,7 +24,7 @@ PrefabInstance:
     - target: {fileID: 2459542470621268462, guid: 1af0bceb049a7b645b2da92c559a7569,
         type: 3}
       propertyPath: viewAngle
-      value: 60
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2459542470621268462, guid: 1af0bceb049a7b645b2da92c559a7569,
         type: 3}

@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 3340834974975758354}
   - component: {fileID: 700856184213693656}
   - component: {fileID: -4339627940523589568}
+  - component: {fileID: 8936674464645514499}
+  - component: {fileID: -1297776640116727130}
   m_Layer: 0
-  m_Name: untitled
-  m_TagString: Untagged
+  m_Name: Router
+  m_TagString: ClickablesLayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da1fd69bcc42804ca830e9189e57cc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewRadius: 400
+  viewRadius: 100
   viewAngle: 360
   targetMask:
     serializedVersion: 2
@@ -107,6 +109,34 @@ MonoBehaviour:
   edgeResolveIterations: 4
   edgeDstThreshold: 0.5
   viewMeshFilter: {fileID: 1311591915510017901}
+--- !u!114 &8936674464645514499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349123360086213901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20fd5c7dafbd15f4998f61c0f168d26e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 1349123360086213901}
+  screenSpace: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0, z: 0}
+--- !u!65 &-1297776640116727130
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349123360086213901}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2452671504851462907
 GameObject:
   m_ObjectHideFlags: 0
