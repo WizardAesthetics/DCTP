@@ -9,6 +9,11 @@ public class PlaceObject : MonoBehaviour
     private float mZCoord;
     public GameObject prefab; // This should be set within Unity to the objects that will be moved with cursor
     public float turnSpeed = 100f;
+    private BuildCity city = new BuildCity();
+    private ArrayList lacationArray = new ArrayList();
+    private Vector3 pos;
+    private Vector3 mousePos;
+    private float dis;
 
     // Configurations set before first frame
     void Start()
@@ -40,9 +45,25 @@ public class PlaceObject : MonoBehaviour
         // When mouse is clicked, static object will spawn
         if (Input.GetMouseButton(0))
         {
+            lacationArray = city.getPosArray();
+
             mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
             //movePoint = gameObject.transform.position - GetMouseWorldPos();
 
+            for (int i =0; i< lacationArray.Count; i++)
+            {
+                pos = (Vector3)lacationArray[i];
+                dis = Vector3.Distance(pos, mousePos); // Calculating Distance
+                mousePos = GetMouseWorldPos();
+                if (pos.z > mousePos.z)
+                {
+
+                    Instantiate(prefab, pos, transform.rotation);
+                    Destroy(gameObject); // Destroy object following cursor
+                    Cursor.visible = true;
+                }
+
+            }
             Instantiate(prefab, transform.position, transform.rotation);
             Destroy(gameObject); // Destroy object following cursor
             Cursor.visible = true;

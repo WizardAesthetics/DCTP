@@ -17,11 +17,50 @@ public class BuildCity : MonoBehaviour
     public int mapHeight = 20;//depth the building will be places on
     public float buildingFootPrint = 5; //distance between building
     public int index;
+    public GameObject xStreet;
+    public GameObject yStreet;
+    public GameObject crossWalk;
     float seed;
+    int[,] mappgrid;
+   private ArrayList lacationArray = new ArrayList();
 
     // Start is called before the first frame update
     void Start()
     {
+        mappgrid = new int[mapWidth, mapHeight];
+
+        for (int i =0; i< mapHeight; i++)
+        {
+            for (int j = 0; j < mapWidth; j++)
+            {
+                mappgrid[j,i] = (int)(Mathf.PerlinNoise(j / 5.0f + seed, i / 5.0f + seed) * 10);
+            }
+        }
+
+        int x = 0;
+        for (int i = 0; i < 50; i++)
+        {
+            for (int j = 0; j < mapHeight; j++)
+            {
+                mappgrid[x, j] = -1;
+            }
+            x += Random.Range(3, 3);
+            if (x >= mapWidth) break;
+        }
+
+        int z = 0;
+        for (int i = 0; i < 50; i++)
+        {
+            for (int j = 0; j < mapWidth; j++)
+            {
+                if(mappgrid[j, z] == -1)
+                    mappgrid[j, z] = -3;
+                else
+                    mappgrid[j, z] = -2;
+            }
+            z += Random.Range(3, 3);
+            if (z >= mapHeight) break;
+        }
 
         if (index > 30)
         {
@@ -36,16 +75,23 @@ public class BuildCity : MonoBehaviour
             for(int j = 0; j< mapWidth; j++)
             {
 
-                int result = (int)(Mathf.PerlinNoise(j/5.0f + seed, i/5.0f + seed) * 10); //finding a number based on the PerlinNoise
-                Vector3 pos = new Vector3(j*buildingFootPrint, 0, i*buildingFootPrint); //finding out where then building will be placed
+                int result = mappgrid[j, i]; //finding a number based on the PerlinNoise
+                Vector3 pos = new Vector3(j*buildingFootPrint, 1, i*buildingFootPrint); //finding out where then building will be placed
 
+                lacationArray.Add(pos);
                 //based on result figuring out what to place
-                if(result<2)
+                if (result == -3)
+                    Instantiate(crossWalk, pos, crossWalk.transform.rotation);
+                else if (result == -2)
+                    Instantiate(xStreet, pos, xStreet.transform.rotation);
+                else if (result == -1)
+                    Instantiate(yStreet, pos, yStreet.transform.rotation);
+                else if(result<2)
                     Instantiate(buildings[5], pos, Quaternion.identity);
                 else if (result < 3)
                     Instantiate(buildings[1], pos, Quaternion.identity);
                 else if (result < 4)
-                    Instantiate(buildings[2], pos, Quaternion.identity);
+                   Instantiate(buildings[2], pos, Quaternion.identity);
                 else if (result < 5)
                     Instantiate(buildings[3], pos, Quaternion.identity);
                 else if (result < 6)
@@ -58,4 +104,9 @@ public class BuildCity : MonoBehaviour
         }
 
     }
+
+   public ArrayList getPosArray()
+   {
+        return lacationArray;
+   }
 }
