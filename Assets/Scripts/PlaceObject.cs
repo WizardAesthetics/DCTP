@@ -14,7 +14,9 @@ public class PlaceObject : MonoBehaviour
     private Vector3 pos;
     private Vector3 mousePos;
     private float dis;
-
+    private GameObject buildings;
+    private ArrayList buildingsArray = new ArrayList();
+    private Vector3 m_Size;
     // Configurations set before first frame
     void Start()
     {
@@ -46,27 +48,30 @@ public class PlaceObject : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             lacationArray = city.getPosArray();
+            buildingsArray = city.getBuildingsArray();
 
             mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
-            //movePoint = gameObject.transform.position - GetMouseWorldPos();
 
             for (int i =0; i< lacationArray.Count; i++)
             {
                 pos = (Vector3)lacationArray[i];
-                dis = Vector3.Distance(pos, mousePos); // Calculating Distance
+                buildings = (GameObject)buildingsArray[i];
+
                 mousePos = GetMouseWorldPos();
-                if (pos.z > mousePos.z)
+                dis = Vector3.Distance(pos, mousePos); // Calculating Distance
+
+                if (dis<100 )
                 {
+                    m_Size = buildings.GetComponent<BoxCollider>().size;
+                    pos.y = m_Size.y - (prefab.GetComponent<BoxCollider>().size).y; 
 
                     Instantiate(prefab, pos, transform.rotation);
                     Destroy(gameObject); // Destroy object following cursor
                     Cursor.visible = true;
-                }
-
+                    break;
+                } 
             }
-            Instantiate(prefab, transform.position, transform.rotation);
-            Destroy(gameObject); // Destroy object following cursor
-            Cursor.visible = true;
+
         }
     }
 
@@ -77,6 +82,7 @@ public class PlaceObject : MonoBehaviour
         mousePoint.z = mZCoord;
         return Camera.main.ScreenToWorldPoint(mousePoint);
     }
+
 
 
 }

@@ -8,6 +8,8 @@ public class DragAndDrop : MonoBehaviour
 	public GameObject Target;
 	public Vector3 screenSpace;
 	public Vector3 offset;
+	public float turnSpeed = 100f;
+	private float mZCoord;
 
 	// Use this for initialization
 	void Start()
@@ -24,6 +26,7 @@ public class DragAndDrop : MonoBehaviour
 			RaycastHit hitInfo;
 			if (Target == GetClickedObject(out hitInfo))
 			{
+
 				_mouseState = true;
 				screenSpace = Camera.main.WorldToScreenPoint(Target.transform.position);
 				offset = Target.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z));
@@ -35,6 +38,21 @@ public class DragAndDrop : MonoBehaviour
 		}
 		if (_mouseState)
 		{
+
+			// Position of cube will follow cursor
+			transform.position = new Vector3(GetMouseWorldPos().x, transform.position.y, GetMouseWorldPos().z);
+
+			// rotate counterclockwise
+			if (Input.GetKey("q"))
+			{
+				transform.Rotate(Vector3.up * -turnSpeed * Time.deltaTime);
+			}
+
+			//rortate clockwise
+			if (Input.GetKey("e"))
+			{
+				transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime);
+			}
 			//keep track of the mouse position
 			var curScreenSpace = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z);
 
@@ -57,5 +75,13 @@ public class DragAndDrop : MonoBehaviour
 		}
 
 		return target;
+	}
+
+	// Calcuates mouse position
+	private Vector3 GetMouseWorldPos()
+	{
+		Vector3 mousePoint = Input.mousePosition;
+		mousePoint.z = mZCoord;
+		return Camera.main.ScreenToWorldPoint(mousePoint);
 	}
 }

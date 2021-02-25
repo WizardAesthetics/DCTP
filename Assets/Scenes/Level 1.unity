@@ -699,7 +699,7 @@ MonoBehaviour:
   orthographicSizeMin: 100
   orthographicSizeMax: 200
   fovMin: 10
-  fovMax: 90
+  fovMax: 80
   zoomSpeed: 10
   rotateSpeed: 12
   cam: {fileID: 785561665}
@@ -1441,42 +1441,42 @@ PrefabInstance:
     - target: {fileID: 6637348103639900919, guid: 1c236c9c536bf0848b51141be04343ee,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 52
       objectReference: {fileID: 0}
     - target: {fileID: 6637348103639900919, guid: 1c236c9c536bf0848b51141be04343ee,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 6637348103639900919, guid: 1c236c9c536bf0848b51141be04343ee,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92387956
+      value: 0.8660254
       objectReference: {fileID: 0}
     - target: {fileID: 6637348103639900919, guid: 1c236c9c536bf0848b51141be04343ee,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.38268343
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6637348103639900919, guid: 1c236c9c536bf0848b51141be04343ee,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 45
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6637348103786586099, guid: 1c236c9c536bf0848b51141be04343ee,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -140
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 6637348103786586099, guid: 1c236c9c536bf0848b51141be04343ee,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 484
+      value: 601
       objectReference: {fileID: 0}
     - target: {fileID: 6637348103786586099, guid: 1c236c9c536bf0848b51141be04343ee,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -756
+      value: -585
       objectReference: {fileID: 0}
     - target: {fileID: 6637348103786586099, guid: 1c236c9c536bf0848b51141be04343ee,
         type: 3}

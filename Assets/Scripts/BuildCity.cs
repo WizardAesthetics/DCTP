@@ -22,11 +22,15 @@ public class BuildCity : MonoBehaviour
     public GameObject crossWalk;
     float seed;
     int[,] mappgrid;
-   private ArrayList lacationArray = new ArrayList();
+    private static ArrayList lacationArray;
+    private static ArrayList buildingsArray;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        lacationArray = new ArrayList();
+        buildingsArray = new ArrayList();
         mappgrid = new int[mapWidth, mapHeight];
 
         for (int i =0; i< mapHeight; i++)
@@ -78,7 +82,6 @@ public class BuildCity : MonoBehaviour
                 int result = mappgrid[j, i]; //finding a number based on the PerlinNoise
                 Vector3 pos = new Vector3(j*buildingFootPrint, 1, i*buildingFootPrint); //finding out where then building will be placed
 
-                lacationArray.Add(pos);
                 //based on result figuring out what to place
                 if (result == -3)
                     Instantiate(crossWalk, pos, crossWalk.transform.rotation);
@@ -86,27 +89,55 @@ public class BuildCity : MonoBehaviour
                     Instantiate(xStreet, pos, xStreet.transform.rotation);
                 else if (result == -1)
                     Instantiate(yStreet, pos, yStreet.transform.rotation);
-                else if(result<2)
+                else if (result < 2) 
+                {
                     Instantiate(buildings[5], pos, Quaternion.identity);
+                }
                 else if (result < 3)
+                {
                     Instantiate(buildings[1], pos, Quaternion.identity);
+                    lacationArray.Add(pos);
+                    buildingsArray.Add(buildings[1]);
+                }
                 else if (result < 4)
-                   Instantiate(buildings[2], pos, Quaternion.identity);
+                {
+                    Instantiate(buildings[2], pos, Quaternion.identity);
+                    lacationArray.Add(pos);
+                    buildingsArray.Add(buildings[2]);
+                }
                 else if (result < 5)
+                {
                     Instantiate(buildings[3], pos, Quaternion.identity);
+                    lacationArray.Add(pos);
+                    buildingsArray.Add(buildings[3]);
+                }
                 else if (result < 6)
+                {
                     Instantiate(buildings[4], pos, Quaternion.identity);
+                    lacationArray.Add(pos);
+                    buildingsArray.Add(buildings[4]);
+                }
                 else if (result < 7)
+                {
                     Instantiate(buildings[0], pos, Quaternion.identity);
+                    lacationArray.Add(pos);
+                    buildingsArray.Add(buildings[0]);
+                }
                 else if (result < 10)
+                {
                     Instantiate(buildings[6], pos, Quaternion.identity);
+                }
             }
         }
-
     }
 
    public ArrayList getPosArray()
    {
         return lacationArray;
    }
+
+    public ArrayList getBuildingsArray()
+    {
+        return buildingsArray;
+    }
 }

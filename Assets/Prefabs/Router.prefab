@@ -124,6 +124,7 @@ MonoBehaviour:
   Target: {fileID: 1349123360086213901}
   screenSpace: {x: 0, y: 0, z: 0}
   offset: {x: 0, y: 0, z: 0}
+  turnSpeed: 100
 --- !u!65 &-1297776640116727130
 BoxCollider:
   m_ObjectHideFlags: 0
