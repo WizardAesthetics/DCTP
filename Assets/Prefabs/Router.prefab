@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: -4339627940523589568}
   - component: {fileID: 8936674464645514499}
   - component: {fileID: -1297776640116727130}
-  m_Layer: 0
+  - component: {fileID: -5365213983406182409}
+  m_Layer: 12
   m_Name: Router
   m_TagString: ClickablesLayer
   m_Icon: {fileID: 0}
@@ -97,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewRadius: 100
-  viewAngle: 360
+  viewAngle: 30
   targetMask:
     serializedVersion: 2
     m_Bits: 512
@@ -138,6 +139,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1, z: 0.1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-5365213983406182409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349123360086213901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f457004c5ac2674bb871931a9d03338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2452671504851462907
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +162,7 @@ GameObject:
   - component: {fileID: 2241397910647967790}
   - component: {fileID: 6305823257600971758}
   - component: {fileID: 1311591915510017901}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

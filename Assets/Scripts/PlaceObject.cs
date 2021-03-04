@@ -1,10 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlaceObject : MonoBehaviour
 {
-
     private Vector3 movePoint;
     private float mZCoord;
     public GameObject prefab; // This should be set within Unity to the objects that will be moved with cursor
@@ -17,6 +16,9 @@ public class PlaceObject : MonoBehaviour
     private GameObject buildings;
     private ArrayList buildingsArray = new ArrayList();
     private Vector3 m_Size;
+    private int count = 0;
+    private Rigidbody rb;
+
     // Configurations set before first frame
     void Start()
     {
@@ -74,6 +76,7 @@ public class PlaceObject : MonoBehaviour
 
         }
     }
+
 
     // Calcuates mouse position
     private Vector3 GetMouseWorldPos()

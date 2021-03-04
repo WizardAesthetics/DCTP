@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - ClickablesLayer
+  - Exstender
+  - Router
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - Obstacles
   - Targets
   - ClickableObjects
-  - 
-  - 
+  - Exstender
+  - Router
   - 
   - 
   - 

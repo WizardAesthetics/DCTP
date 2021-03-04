@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1349123360086213901, guid: 06295c6d8c23c0d42b12f99fcd027269, type: 3}
   turnSpeed: 100
+  countText: {fileID: 2843209068556651596, guid: 556e8bd7177130e45b08dec6e99a6d35,
+    type: 3}
+  winTextObject: {fileID: 0}
 --- !u!1001 &56066338056284276
 PrefabInstance:
   m_ObjectHideFlags: 0
