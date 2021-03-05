@@ -1786,6 +1786,8 @@ MonoBehaviour:
   winTextObject: {fileID: 845745375}
   MovementControl: {fileID: 604218762}
   buttonlock: {fileID: 2109853467}
+  RedCollider: {fileID: 0}
+  BlueCollider: {fileID: 0}
 --- !u!1 &1667109510
 GameObject:
   m_ObjectHideFlags: 0

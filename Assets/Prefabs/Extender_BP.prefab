@@ -21,6 +21,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3929405595789478985, guid: 1af0bceb049a7b645b2da92c559a7569,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2459542470621268462, guid: 1af0bceb049a7b645b2da92c559a7569,
         type: 3}
       propertyPath: viewAngle
