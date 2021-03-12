@@ -33,6 +33,12 @@ public class PlaceObject : MonoBehaviour
         // Position of cube will follow cursor
         transform.position = new Vector3(GetMouseWorldPos().x, transform.position.y, GetMouseWorldPos().z);
 
+        //Cancel Placement
+        if(Input.GetMouseButton(1))
+        {
+            Destroy(gameObject); // Destroy object following cursor
+            Cursor.visible = true; //Makes Cursor Visible Again
+        }
         // rotate counterclockwise
         if (Input.GetKey("q"))
         {
