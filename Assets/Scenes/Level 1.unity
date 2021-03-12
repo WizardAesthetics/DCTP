@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -618.5, y: -169}
+  m_AnchoredPosition: {x: -619, y: -197.2}
   m_SizeDelta: {x: 45, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &40078557
@@ -1064,7 +1064,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -619, y: -60}
+  m_AnchoredPosition: {x: -619, y: -87.2}
   m_SizeDelta: {x: 30, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1045490861
@@ -1362,7 +1362,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -617.8, y: -112}
+  m_AnchoredPosition: {x: -619, y: -142.1}
   m_SizeDelta: {x: 45, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1075629956
@@ -1498,7 +1498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1115883923
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1521,7 +1521,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 959, y: 539}
+  m_AnchoredPosition: {x: 960, y: 540}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1115883924
@@ -2425,9 +2425,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
-  m_Text: "\tMovement\n\tRotate Object\n\tRotate Camera\n\n\tSector Access Point
-    \n\tCustomer Premises Device \"CPE\"\n\tOmni Directional Mesh Antenae \"Public
-    Hotspot\""
+  m_Text: "\tMovement\n\tRotate Object\n\tRotate Camera\n\tRotate Camera (Alternate
+    Key)\n\n\tSector Access Point \n\tCustomer Premises Device \"CPE\"\n\tOmni Directional
+    Mesh Antenae \"Public Hotspot\""
 --- !u!222 &1891196460
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2774,8 +2774,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
   m_Text: "\tWASD  \n\tQE                                                          
-    \n\tMiddle Mouse (Hold) \t\t\t\t\t\t\t\n\n\tRed Antenna\n\tBlue Antenna\n\tWhite
-    Antenna"
+    \n\tMiddle Mouse (Hold)\n\tLeft Shift (Hold) \t\t\t\t\t\t\t\n\n\tRed Antenna\n\tBlue
+    Antenna\n\tWhite Antenna"
 --- !u!222 &1989929320
 CanvasRenderer:
   m_ObjectHideFlags: 0
