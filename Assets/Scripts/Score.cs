@@ -14,8 +14,8 @@ public class Score : MonoBehaviour
     private int count;
     private BuildCity city = new BuildCity();
 
-    public Collider2D RedCollider;
-    public Collider2D BlueCollider;
+    //public Collider2D RedCollider;
+   // public Collider2D BlueCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +35,7 @@ public class Score : MonoBehaviour
         count = 0;
         for (int i = 0; i< gameObjects.Length; i++)
         {
-            if (gameObjects[i].layer == 12 && RedCollider.IsTouching(BlueCollider))
+            if (gameObjects[i].layer == 12 )
             {
                 count++;
             }
