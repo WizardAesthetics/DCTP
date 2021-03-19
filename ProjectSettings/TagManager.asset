@@ -7,6 +7,9 @@ TagManager:
   - ClickablesLayer
   - Exstender
   - Router
+  - BlueCountTag
+  - RedCountTag
+  - WhiteCountTag
   layers:
   - Default
   - TransparentFX

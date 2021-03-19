@@ -22,19 +22,31 @@ public class PlaceObject : MonoBehaviour
     private Delete delete = new Delete();
     int num;
 
+
     // Configurations set before first frame
     void Start()
     {
+
         Cursor.visible = false; // Cursor invisible while placing objects
         mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
         //movePoint = gameObject.transform.position - GetMouseWorldPos();
         transform.position = new Vector3(GetMouseWorldPos().x, transform.position.y, GetMouseWorldPos().z);
+
+
     }
 
+ 
     void Update()
     {
         // Position of cube will follow cursor
         transform.position = new Vector3(GetMouseWorldPos().x, transform.position.y, GetMouseWorldPos().z);
+
+        //Cancel Placement
+        if (Input.GetMouseButton(1))
+        {
+            Destroy(gameObject); // Destroy object following cursor
+            Cursor.visible = true; //Makes Cursor Visible Again
+        }
 
         // rotate counterclockwise
         if (Input.GetKey("q"))
