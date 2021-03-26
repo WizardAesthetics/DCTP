@@ -22,6 +22,7 @@ public class PlaceObject : MonoBehaviour
     private Delete delete = new Delete();
     int num;
 
+    public static RouterLimit limitRouter = new RouterLimit();
 
     // Configurations set before first frame
     void Start()
@@ -83,13 +84,18 @@ public class PlaceObject : MonoBehaviour
                     pos.y = m_Size.y - (prefab.GetComponent<BoxCollider>().size).y;
                     if (objectArray.Count == 0)
                     {
-                        if (prefab.layer == 12)
-                        {
-
+                        if (prefab.layer == 12) 
+                        { 
                             objectArray.Add(pos);
                         }
+                        if (prefab.layer == 11 && limitRouter.getCount() != 0)
+                        {
+                            Debug.Log("Inside If 1");
+                            Debug.Log(limitRouter.getCount());
+                            limitRouter.Reduce();
+                        }
 
-                        Instantiate(prefab, pos, transform.rotation);
+                    Instantiate(prefab, pos, transform.rotation);
                         Destroy(gameObject); // Destroy object following cursor
                         Cursor.visible = true;
                         delete.setObjectArrayReturn(objectArray);
@@ -109,8 +115,13 @@ public class PlaceObject : MonoBehaviour
                         }
                         if (prefab.layer == 12)
                         {
-
                             objectArray.Add(pos);
+                        }
+                        if (prefab.layer == 11 && limitRouter.getCount() != 0)
+                        {
+                            Debug.Log("Inside If 2");//
+                            Debug.Log(limitRouter.getCount());
+                            limitRouter.Reduce();
                         }
 
                         Instantiate(prefab, pos, transform.rotation);

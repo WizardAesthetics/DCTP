@@ -8,11 +8,18 @@ public class Delete : MonoBehaviour
     private static ArrayList objectArrayReturn = new ArrayList();
     int num;
 
+    
 
     public void DeleteObj(string tag)
     {
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag(tag);
         int size = gameObjects.Length - 1;
+
+        if (gameObjects[size].layer == 11)
+        {
+            PlaceObject.limitRouter.setCount(1);
+        }
+            
         GameObject.Destroy(gameObjects[size]);
         num = objectArrayReturn.Count;
         objectArrayReturn.RemoveAt(num-1);
