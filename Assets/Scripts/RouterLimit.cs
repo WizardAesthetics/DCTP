@@ -47,7 +47,6 @@ public class RouterLimit : MonoBehaviour
     public void Reduce()
     {
         count2 = count2 - 1;
-        SetCountText();
     }
 
     public int getCount()
