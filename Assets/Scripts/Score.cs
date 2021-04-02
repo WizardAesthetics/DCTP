@@ -26,14 +26,14 @@ public class Score : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        countText.text = "Houses Connected: " + 0;
+        countText.text = "Houses Connected: " + 0+"\\18";
     }
 
     // Update is called once per frame
     void Update()
     {
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("ClickablesLayer");
-        countText.text = "Houses Connected: " + getCountNUm(); 
+        countText.text = "Houses Connected: " + getCountNUm() + "\\18"; 
         if(getCountNUm() > (city.getBuildingsArray().Count * 0.5))
         {
             winTextObject.SetActive(true);

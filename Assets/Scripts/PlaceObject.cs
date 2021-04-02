@@ -24,7 +24,6 @@ public class PlaceObject : MonoBehaviour
     public static RouterLimit limitRouter = new RouterLimit();
 
 
-    public static RouterLimit limitRouter = new RouterLimit();
 
     // Configurations set before first frame
     void Start()
@@ -90,7 +89,7 @@ public class PlaceObject : MonoBehaviour
                         { 
                             objectArray.Add(pos);
                         }
-                        if (prefab.layer == 11 && limitRouter.getCount() != 0)
+                        if (prefab.layer == 9 && limitRouter.getCount() != 0)
                         {
 
                             limitRouter.Reduce();
@@ -119,7 +118,7 @@ public class PlaceObject : MonoBehaviour
                             objectArray.Add(pos);
                         }
 
-                        if (prefab.layer == 11 && limitRouter.getCount() != 0)
+                        if (prefab.layer == 9 && limitRouter.getCount() != 0)
                         {
 
                             limitRouter.Reduce();
