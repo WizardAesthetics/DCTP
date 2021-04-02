@@ -28,7 +28,7 @@ public class Delete : MonoBehaviour
         }
        
 
-        if (gameObjects[size].layer == 11)
+        if (gameObjects[size].layer == 9)
         {
             PlaceObject.limitRouter.setCount(1);
         }
