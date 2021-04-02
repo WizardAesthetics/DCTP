@@ -4,12 +4,24 @@ using UnityEngine;
 
 public class DragAndDrop : MonoBehaviour
 {
-	private bool _mouseState;
 	public GameObject Target;
 	public Vector3 screenSpace;
 	public Vector3 offset;
-	public float turnSpeed = 100f;
+	private Vector3 movePoint;
 	private float mZCoord;
+	public GameObject prefab; // This should be set within Unity to the objects that will be moved with cursor
+	public float turnSpeed = 100f;
+	private BuildCity city = new BuildCity();
+	private ArrayList lacationArray = new ArrayList();
+	private Vector3 pos;
+	private Vector3 mousePos;
+	private float dis;
+	private GameObject buildings;
+	private ArrayList buildingsArray = new ArrayList();
+	private Vector3 m_Size;
+	private int count = 0;
+	private static ArrayList objectArray = new ArrayList();
+	int num;
 
 	// Use this for initialization
 	void Start()
@@ -20,47 +32,44 @@ public class DragAndDrop : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		// Debug.Log(_mouseState);
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButton(0))
 		{
 			RaycastHit hitInfo;
 			if (Target == GetClickedObject(out hitInfo))
 			{
 
-				_mouseState = true;
 				screenSpace = Camera.main.WorldToScreenPoint(Target.transform.position);
 				offset = Target.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z));
 			}
-		}
-		if (Input.GetMouseButtonUp(0))
-		{
-			_mouseState = false;
-		}
-		if (_mouseState)
-		{
 
-			// Position of cube will follow cursor
-			transform.position = new Vector3(GetMouseWorldPos().x, transform.position.y, GetMouseWorldPos().z);
+			lacationArray = city.getPosArray();
+			buildingsArray = city.getBuildingsArray();
 
-			// rotate counterclockwise
-			if (Input.GetKey("q"))
+			mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+
+			for (int i = 0; i < lacationArray.Count; i++)
 			{
-				transform.Rotate(Vector3.up * -turnSpeed * Time.deltaTime);
-			}
+				pos = (Vector3)lacationArray[i];
+				buildings = (GameObject)buildingsArray[i];
 
-			//rortate clockwise
-			if (Input.GetKey("e"))
-			{
-				transform.Rotate(Vector3.up * turnSpeed * Time.deltaTime);
-			}
-			//keep track of the mouse position
-			var curScreenSpace = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z);
+				mousePos = GetMouseWorldPos();
+				dis = Vector3.Distance(pos, mousePos); // Calculating Distance
+				if (dis < 100)
+				{
+					m_Size = buildings.GetComponent<BoxCollider>().size;
+					pos.y = m_Size.y - (prefab.GetComponent<BoxCollider>().size).y;
+					for (int j = 0; j < objectArray.Count; j++)
+					{
 
-			//convert the screen mouse position to world point and adjust with offset
-			var curPosition = Camera.main.ScreenToWorldPoint(curScreenSpace) + offset;
-			curPosition.y=12.0f; //set objects to ground level
-			//update the position of the object in the world
-			Target.transform.position = curPosition;
+						if (Vector3.Distance(pos, (Vector3)objectArray[j]) == 0 && prefab.layer == 12)
+						{
+							return;
+						}
+
+					}
+					
+				}
+			}
 		}
 	}
 

@@ -11,11 +11,17 @@ public class Score : MonoBehaviour
     public GameObject winTextObject;
     public GameObject MovementControl;
     public GameObject buttonlock;
-    private int count;
+    public GameObject buttonlock1;
+    public GameObject buttonlock2;
+    public GameObject Image;
+    public GameObject Image1;
     private BuildCity city = new BuildCity();
+    private int count;
+    private FieldOfViewBlue fieldOfView = new FieldOfViewBlue();
+
 
     //public Collider2D RedCollider;
-   // public Collider2D BlueCollider;
+    // public Collider2D BlueCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -27,25 +33,23 @@ public class Score : MonoBehaviour
     void Update()
     {
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("ClickablesLayer");
-        countText.text = "Houses Connected: " + getcount(gameObjects);
-    }
-
-    private int getcount(GameObject[] gameObjects)
-    {
-        count = 0;
-        for (int i = 0; i< gameObjects.Length; i++)
+        countText.text = "Houses Connected: " + getCountNUm(); 
+        if(getCountNUm() > (city.getBuildingsArray().Count * 0.5))
         {
-            if (gameObjects[i].layer == 12 )
-            {
-                count++;
-            }
-            if (count >= (city.getBuildingsArray().Count * 0.6))
-            {
-                winTextObject.SetActive(true);
-                MovementControl.GetComponent<ThirdPMovement>().enabled = false;
-                buttonlock.SetActive(false);
-            }
+            winTextObject.SetActive(true);
+            Image.SetActive(true);
+            Image1.SetActive(true);
+            MovementControl.GetComponent<ThirdPMovement>().enabled = false; 
+            buttonlock.SetActive(false);
+            buttonlock1.SetActive(false);
+            buttonlock2.SetActive(false);
+
         }
+    }
+  
+    public int getCountNUm()
+    {
+        count = FieldOfViewBlue.counter.getCount();
         return count;
     }
 

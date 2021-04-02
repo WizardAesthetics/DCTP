@@ -16,11 +16,13 @@ public class PlaceObject : MonoBehaviour
     private GameObject buildings;
     private ArrayList buildingsArray = new ArrayList();
     private Vector3 m_Size;
-    private int count = 0;
-    private Rigidbody rb;
     private static ArrayList objectArray = new ArrayList();
     private Delete delete = new Delete();
-    int num;
+    private int num;
+    public TextMeshProUGUI countText;
+
+    public static RouterLimit limitRouter = new RouterLimit();
+
 
     // Configurations set before first frame
     void Start()
@@ -76,6 +78,10 @@ public class PlaceObject : MonoBehaviour
 
                             objectArray.Add(pos);
                         }
+                        if (prefab.layer == 9 && limitRouter.getCount() != 0)
+                        {
+                            limitRouter.Reduce();
+                        }
 
                         Instantiate(prefab, pos, transform.rotation);
                         Destroy(gameObject); // Destroy object following cursor
@@ -99,6 +105,10 @@ public class PlaceObject : MonoBehaviour
                         {
 
                             objectArray.Add(pos);
+                        }
+                        if (prefab.layer == 9 && limitRouter.getCount() != 0)
+                        {
+                            limitRouter.Reduce();
                         }
 
                         Instantiate(prefab, pos, transform.rotation);

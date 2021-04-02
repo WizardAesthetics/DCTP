@@ -12,7 +12,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class FieldOfView : MonoBehaviour
+public class FieldOfViewBlue : MonoBehaviour
 {
 
     // This is the value of the radius of the signal
@@ -34,10 +34,14 @@ public class FieldOfView : MonoBehaviour
     public float meshResolution; // 10 is a good value
     public int edgeResolveIterations;
     public float edgeDstThreshold; // 0.5
+    public static Counter counter = new Counter();
+    public GameObject FOV;
 
     // 
     public MeshFilter viewMeshFilter;
     Mesh viewMesh;
+
+    private static int countNum;
 
     // Runs when scene loads
     void Start()
@@ -47,23 +51,20 @@ public class FieldOfView : MonoBehaviour
         viewMeshFilter.mesh = viewMesh;
 
         StartCoroutine("FindTargetsWithDelay", .2f);
+
     }
 
     // Loop that constantly looks to see which objects are in line of sight
     IEnumerator FindTargetsWithDelay(float delay)
     {
-        while (true)
-        {
             yield return new WaitForSeconds(delay);
             FindVisibleTargets();
-        }
     }
 
     // Updates after all functions have been called
     void LateUpdate()
     {
         DrawFieldOfView();
-        visibleTargetEffect();
     }
 
     // Adds Transforms of targets that are in line of sight to global visibleTargets list
@@ -83,20 +84,16 @@ public class FieldOfView : MonoBehaviour
                 if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
                     visibleTargets.Add(target);
+                    FOV.SetActive(false);
                 }
             }
         }
+        setCountNum();
     }
 
-
-    void visibleTargetEffect()
+    public void setCountNum()
     {
-        for (int i = 0; i < visibleTargets.Count; i++)
-        {
-            Debug.Log("Target in view");
-            //visibleTargets[i].GetComponent<>().material.color = Color.green;
-        }
-        
+        counter.setCount(visibleTargets.Count);
     }
 
 
