@@ -32,7 +32,6 @@ public class RouterLimit : MonoBehaviour
     {
         if (count < 1)
         {
-           // Debug.Log("Inside Update If");
             button.SetActive(false);
             image.SetActive(true);
         }
@@ -45,6 +44,7 @@ public class RouterLimit : MonoBehaviour
 
     public void Reduce()
     {
+
         count = count - 1;
 
     }

@@ -24,19 +24,32 @@ public class PlaceObject : MonoBehaviour
     public static RouterLimit limitRouter = new RouterLimit();
 
 
+    public static RouterLimit limitRouter = new RouterLimit();
+
     // Configurations set before first frame
     void Start()
     {
+
         Cursor.visible = false; // Cursor invisible while placing objects
         mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
         //movePoint = gameObject.transform.position - GetMouseWorldPos();
         transform.position = new Vector3(GetMouseWorldPos().x, transform.position.y, GetMouseWorldPos().z);
+
+
     }
 
+ 
     void Update()
     {
         // Position of cube will follow cursor
         transform.position = new Vector3(GetMouseWorldPos().x, transform.position.y, GetMouseWorldPos().z);
+
+        //Cancel Placement
+        if (Input.GetMouseButton(1))
+        {
+            Destroy(gameObject); // Destroy object following cursor
+            Cursor.visible = true; //Makes Cursor Visible Again
+        }
 
         // rotate counterclockwise
         if (Input.GetKey("q"))
@@ -73,17 +86,17 @@ public class PlaceObject : MonoBehaviour
                     pos.y = m_Size.y - (prefab.GetComponent<BoxCollider>().size).y;
                     if (objectArray.Count == 0)
                     {
-                        if (prefab.layer == 12)
-                        {
-
+                        if (prefab.layer == 12) 
+                        { 
                             objectArray.Add(pos);
                         }
-                        if (prefab.layer == 9 && limitRouter.getCount() != 0)
+                        if (prefab.layer == 11 && limitRouter.getCount() != 0)
                         {
+
                             limitRouter.Reduce();
                         }
 
-                        Instantiate(prefab, pos, transform.rotation);
+                    Instantiate(prefab, pos, transform.rotation);
                         Destroy(gameObject); // Destroy object following cursor
                         Cursor.visible = true;
                         delete.setObjectArrayReturn(objectArray);
@@ -103,11 +116,12 @@ public class PlaceObject : MonoBehaviour
                         }
                         if (prefab.layer == 12)
                         {
-
                             objectArray.Add(pos);
                         }
-                        if (prefab.layer == 9 && limitRouter.getCount() != 0)
+
+                        if (prefab.layer == 11 && limitRouter.getCount() != 0)
                         {
+
                             limitRouter.Reduce();
                         }
 

@@ -12,6 +12,7 @@ public class Delete : MonoBehaviour
     public static bool isDeleted = false;
 
 
+    
 
     public void DeleteObj(string tag)
     {
@@ -20,16 +21,19 @@ public class Delete : MonoBehaviour
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag(tag);
         int size = gameObjects.Length - 1;
 
-        if (gameObjects[size].layer == 9)
-        {
-            PlaceObject.limitRouter.setCount(1);
-        }
         if(gameObjects[size].layer == 12)
         {
             if (Counter.count >0 && (gameObjects[size].GetComponent<FieldOfViewBlue>().visibleTargets.Count > 0))
                 Counter.count = Counter.count - 1;
         }
        
+
+        if (gameObjects[size].layer == 11)
+        {
+            PlaceObject.limitRouter.setCount(1);
+        }
+            
+
         GameObject.Destroy(gameObjects[size]);
         num = objectArrayReturn.Count;
         objectArrayReturn.RemoveAt(num - 1);
