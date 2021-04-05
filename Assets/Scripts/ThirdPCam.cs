@@ -38,7 +38,7 @@ public class ThirdPCam : MonoBehaviour
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
             xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, 55f, 90f);
+            xRotation = Mathf.Clamp(xRotation, 60f, 90f);
 
             transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
             playerBody.Rotate(Vector3.up * mouseX);

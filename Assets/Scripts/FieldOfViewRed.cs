@@ -34,13 +34,12 @@ public class FieldOfViewRed : MonoBehaviour
     public float meshResolution; // 10 is a good value
     public int edgeResolveIterations;
     public float edgeDstThreshold; // 0.5
+    public static Counter counter = new Counter();
 
     // 
     public MeshFilter viewMeshFilter;
     Mesh viewMesh;
 
-    private Counter count = new Counter();
-    private int countNum;
 
     // Runs when scene loads
     void Start()
@@ -66,7 +65,7 @@ public class FieldOfViewRed : MonoBehaviour
     void LateUpdate()
     {
         DrawFieldOfView();
-        visibleTargetEffect();
+
     }
 
     // Adds Transforms of targets that are in line of sight to global visibleTargets list
@@ -75,7 +74,7 @@ public class FieldOfViewRed : MonoBehaviour
     {
         visibleTargets.Clear();
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
-
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("ClickablesLayer");
         for (int i = 0; i < targetsInViewRadius.Length; i++)
         {
             Transform target = targetsInViewRadius[i].transform;
@@ -86,20 +85,11 @@ public class FieldOfViewRed : MonoBehaviour
                 if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
                     visibleTargets.Add(target);
+                    counter.setCount(visibleTargets.Count);
                 }
             }
         }
-    }
-
-
-    void visibleTargetEffect()
-    {
-        countNum = visibleTargets.Count;
-        //for (int i = 0; i < visibleTargets.Count; i++)
-        //{
-        //countNum = i;
-        //visibleTargets[i].GetComponent<>().material.color = Color.green;
-        //}
+       
     }
 
 

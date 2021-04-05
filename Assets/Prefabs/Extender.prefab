@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2259563799863655806}
   - component: {fileID: 4636453442077530931}
   - component: {fileID: 4955374008176109271}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: 'GameObject '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 7736459556455517014}
   - component: {fileID: -3929405595789478985}
   - component: {fileID: 7732460176404330993}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Extender
   m_TagString: ClickablesLayer
   m_Icon: {fileID: 0}
@@ -236,7 +236,7 @@ MonoBehaviour:
   viewAngle: 60
   targetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   obstacleMask:
     serializedVersion: 2
     m_Bits: 256

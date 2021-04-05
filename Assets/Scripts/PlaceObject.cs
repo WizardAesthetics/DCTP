@@ -22,6 +22,7 @@ public class PlaceObject : MonoBehaviour
     public TextMeshProUGUI countText;
 
     public static RouterLimit limitRouter = new RouterLimit();
+    public GameObject FOV;
 
 
 
@@ -85,17 +86,18 @@ public class PlaceObject : MonoBehaviour
                     pos.y = m_Size.y - (prefab.GetComponent<BoxCollider>().size).y;
                     if (objectArray.Count == 0)
                     {
-                        if (prefab.layer == 12) 
+                        if (prefab.layer == 9) 
                         { 
                             objectArray.Add(pos);
+                            FOV.SetActive(false);
                         }
-                        if (prefab.layer == 9 && limitRouter.getCount() != 0)
+                        if (prefab.layer == 11 && limitRouter.getCount() != 0)
                         {
 
                             limitRouter.Reduce();
                         }
 
-                    Instantiate(prefab, pos, transform.rotation);
+                        Instantiate(prefab, pos, transform.rotation);
                         Destroy(gameObject); // Destroy object following cursor
                         Cursor.visible = true;
                         delete.setObjectArrayReturn(objectArray);
@@ -107,18 +109,19 @@ public class PlaceObject : MonoBehaviour
                         for (int j = 0; j < objectArray.Count; j++)
                         {
 
-                            if (Vector3.Distance(pos, (Vector3)objectArray[j]) == 0 && prefab.layer == 12)
+                            if (Vector3.Distance(pos, (Vector3)objectArray[j]) == 0 && prefab.layer == 9)
                             {
                                 return;
                             }
 
                         }
-                        if (prefab.layer == 12)
+                        if (prefab.layer ==9)
                         {
                             objectArray.Add(pos);
+                            FOV.SetActive(false);
                         }
 
-                        if (prefab.layer == 9 && limitRouter.getCount() != 0)
+                        if (prefab.layer == 11 && limitRouter.getCount() != 0)
                         {
 
                             limitRouter.Reduce();

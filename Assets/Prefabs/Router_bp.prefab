@@ -15,6 +15,7 @@ MonoBehaviour:
   prefab: {fileID: 1349123360086213901, guid: 06295c6d8c23c0d42b12f99fcd027269, type: 3}
   turnSpeed: 100
   countText: {fileID: 0}
+  FOV: {fileID: 2508104446862901903}
 --- !u!1001 &56066338056284276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -123,6 +124,12 @@ PrefabInstance:
 --- !u!1 &1332569085429247353 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1349123360086213901, guid: 06295c6d8c23c0d42b12f99fcd027269,
+    type: 3}
+  m_PrefabInstance: {fileID: 56066338056284276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2508104446862901903 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2452671504851462907, guid: 06295c6d8c23c0d42b12f99fcd027269,
     type: 3}
   m_PrefabInstance: {fileID: 56066338056284276}
   m_PrefabAsset: {fileID: 0}

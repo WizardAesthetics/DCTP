@@ -17,24 +17,20 @@ public class Score : MonoBehaviour
     public GameObject Image1;
     private BuildCity city = new BuildCity();
     private int count;
-    private FieldOfViewBlue fieldOfView = new FieldOfViewBlue();
-
-
-    //public Collider2D RedCollider;
-    // public Collider2D BlueCollider;
+    private FieldOfViewRed fieldOfView = new FieldOfViewRed();
 
     // Start is called before the first frame update
     void Start()
     {
-        countText.text = "Houses Connected: " + 0+"\\18";
+        countText.text = "Houses Connected: " + 0 + "\\" + (int)(city.getBuildingsArray().Count * 0.5);
     }
 
     // Update is called once per frame
     void Update()
     {
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("ClickablesLayer");
-        countText.text = "Houses Connected: " + getCountNUm() + "\\18"; 
-        if(getCountNUm() > (city.getBuildingsArray().Count * 0.5))
+        countText.text = "Houses Connected: " + getCountNUm() + "\\" + (int)(city.getBuildingsArray().Count * 0.5); 
+        if (getCountNUm() > (int)(city.getBuildingsArray().Count * 0.5))
         {
             winTextObject.SetActive(true);
             Image.SetActive(true);
@@ -49,7 +45,7 @@ public class Score : MonoBehaviour
   
     public int getCountNUm()
     {
-        count = FieldOfViewBlue.counter.getCount();
+        count = FieldOfViewRed.counter.getCount();
         return count;
     }
 

@@ -7,28 +7,26 @@ public class Delete : MonoBehaviour
     public string tag;
     private static ArrayList objectArrayReturn = new ArrayList();
     int num;
-    private FieldOfViewBlue fieldOfView = new FieldOfViewBlue();
+    private FieldOfViewRed fieldOfView = new FieldOfViewRed();
     private int count;
-    public static bool isDeleted = false;
 
 
-    
+
 
     public void DeleteObj(string tag)
     {
-        isDeleted = false;
 
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag(tag);
         int size = gameObjects.Length - 1;
 
-        if(gameObjects[size].layer == 12)
+        if(gameObjects[size].layer ==9)
         {
-            if (Counter.count >0 && (gameObjects[size].GetComponent<FieldOfViewBlue>().visibleTargets.Count > 0))
+            if(Counter.count >0)
                 Counter.count = Counter.count - 1;
         }
        
 
-        if (gameObjects[size].layer == 9)
+        if (gameObjects[size].layer ==11)
         {
             PlaceObject.limitRouter.setCount(1);
         }
