@@ -80,7 +80,7 @@ public class PlaceObject : MonoBehaviour
                 mousePos = GetMouseWorldPos();
                 dis = Vector3.Distance(pos, mousePos); // Calculating Distance
 
-                if (dis < 100)
+                if (dis < 50)
                 {
                     m_Size = buildings.GetComponent<BoxCollider>().size;
                     pos.y = m_Size.y - (prefab.GetComponent<BoxCollider>().size).y;

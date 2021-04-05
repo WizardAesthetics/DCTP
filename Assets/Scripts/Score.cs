@@ -30,7 +30,7 @@ public class Score : MonoBehaviour
     {
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("ClickablesLayer");
         countText.text = "Houses Connected: " + getCountNUm() + "\\" + (int)(city.getBuildingsArray().Count * 0.5); 
-        if (getCountNUm() > (int)(city.getBuildingsArray().Count * 0.5))
+        if (getCountNUm() >= (int)(city.getBuildingsArray().Count * 0.5))
         {
             winTextObject.SetActive(true);
             Image.SetActive(true);
