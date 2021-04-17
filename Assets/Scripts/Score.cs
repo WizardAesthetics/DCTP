@@ -1,8 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
+﻿/*
+* Class wrote my Eastern Michigan Univerity Computer Science Department
+* Team Lead: Krish Narayanan
+* Authurs: Blake Johnson, Joesph Stone, Sauel Grone 
+*/
 
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Score : MonoBehaviour
 {
@@ -17,35 +21,47 @@ public class Score : MonoBehaviour
     public GameObject Image1;
     private BuildCity city = new BuildCity();
     private int count;
-    private FieldOfViewRed fieldOfView = new FieldOfViewRed();
+    private Counter counter = new Counter();
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        countText.text = "Houses Connected: " + 0 + "\\" + (int)(city.getBuildingsArray().Count * 0.5);
-    }
+        PlaceObject.objectArray.Clear();
+        RouterLimit.count2 = 4;
+        Counter.number = 0;
+        Counter.number2 = 0;
+        counter.SetCount();
 
-    // Update is called once per frame
+    }
+    /*
+     * Checking if the house connected have surpased the win condition
+     */
     void Update()
     {
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("ClickablesLayer");
-        countText.text = "Houses Connected: " + getCountNUm() + "\\" + (int)(city.getBuildingsArray().Count * 0.5); 
-        if (getCountNUm() >= (int)(city.getBuildingsArray().Count * 0.5))
-        {
-            winTextObject.SetActive(true);
-            Image.SetActive(true);
-            Image1.SetActive(true);
-            MovementControl.GetComponent<ThirdPMovement>().enabled = false; 
-            buttonlock.SetActive(false);
-            buttonlock1.SetActive(false);
-            buttonlock2.SetActive(false);
+        countText.text = "Houses Connected: " + GetCountNUm() + "\\" + (int)(city.GetBuildingsArray().Count * 0.5); 
 
+        /*
+         * Loads win scene
+         */
+        if (GetCountNUm() >= (int)(city.GetBuildingsArray().Count * 0.5))
+        {
+            if (SceneManager.GetActiveScene().buildIndex + 1 > 4)
+            {
+                SceneManager.LoadScene("Win");
+            }
+            else
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
     }
   
-    public int getCountNUm()
+    /*
+     * get the number of house connected
+     */
+    public int GetCountNUm()
     {
-        count = FieldOfViewRed.counter.getCount();
+        count = FieldOfViewRed.counter.GetCount();
         return count;
     }
 

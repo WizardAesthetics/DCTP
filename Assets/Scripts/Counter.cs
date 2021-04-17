@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+* Class wrote my Eastern Michigan Univerity Computer Science Department
+* Team Lead: Krish Narayanan
+* Authurs: Blake Johnson, Joesph Stone, Sauel Grone 
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,31 +12,35 @@ public class Counter : MonoBehaviour
 {
 
     public static int count;
-    private int number;
-    private int number2;
+    public static int number;
+    public static int number2;
 
-
-
-    public int getCount()
+    /*
+     * gets the numer of house connected
+     */
+    public int GetCount()
     {
         return count;
     }
-    public void setCount(int num)
+
+    /*
+     * Sets the number of house connected
+     */
+    public void SetCount()
     {
         number = 0;
         number2 = 0;
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("ClickablesLayer");
-        //ArrayList arrayPos= new ArrayList();
         for (int i = 0; i< gameObjects.Length; i++)
         {
             if (gameObjects[i].layer == 11)
             {
-                number = number + gameObjects[i].GetComponent<FieldOfViewRed>().visibleTargets.Count;
+                number += gameObjects[i].GetComponent<FieldOfViewRed>().visibleTargets.Count;
             }
 
             if (gameObjects[i].layer == 9)
             {
-                number2 = number2 + gameObjects[i].GetComponent<FieldOfViewBlue>().visibleTargets.Count;
+                number2 += gameObjects[i].GetComponent<FieldOfViewBlue>().visibleTargets.Count;
             }
         } 
 

@@ -1,4 +1,10 @@
-﻿/* Controls spawning of objects in game when button in clicked
+﻿/*
+* Class wrote my Eastern Michigan Univerity Computer Science Department
+* Team Lead: Krish Narayanan
+* Authurs: Blake Johnson, Joesph Stone, Sauel Grone 
+*/
+
+/* Controls spawning of objects in game when button in clicked
    Objects is then handled by 'PlaceObject.cs */
 
 using System.Collections;

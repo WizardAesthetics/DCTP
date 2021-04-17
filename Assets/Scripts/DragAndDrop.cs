@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+* Class wrote my Eastern Michigan Univerity Computer Science Department
+* Team Lead: Krish Narayanan
+* Authurs: Blake Johnson, Joesph Stone, Sauel Grone 
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +13,6 @@ public class DragAndDrop : MonoBehaviour
 	public GameObject Target;
 	public Vector3 screenSpace;
 	public Vector3 offset;
-	private Vector3 movePoint;
 	private float mZCoord;
 	public GameObject prefab; // This should be set within Unity to the objects that will be moved with cursor
 	public float turnSpeed = 100f;
@@ -19,17 +24,12 @@ public class DragAndDrop : MonoBehaviour
 	private GameObject buildings;
 	private ArrayList buildingsArray = new ArrayList();
 	private Vector3 m_Size;
-	private int count = 0;
 	private static ArrayList objectArray = new ArrayList();
-	int num;
 
-	// Use this for initialization
-	void Start()
-	{
-
-	}
-
-	// Update is called once per frame
+	/*
+	 * Checking if a moviable object has been selected
+	 * Currently not being used
+	 */
 	void Update()
 	{
 		if (Input.GetMouseButton(0))
@@ -42,8 +42,8 @@ public class DragAndDrop : MonoBehaviour
 				offset = Target.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z));
 			}
 
-			lacationArray = city.getPosArray();
-			buildingsArray = city.getBuildingsArray();
+			lacationArray = city.GetPosArray();
+			buildingsArray = city.GetBuildingsArray();
 
 			mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
 
@@ -73,7 +73,9 @@ public class DragAndDrop : MonoBehaviour
 		}
 	}
 
-
+	/*
+	 * Gets the object that was selected
+	 */
 	GameObject GetClickedObject(out RaycastHit hit)
 	{
 		GameObject target = null;

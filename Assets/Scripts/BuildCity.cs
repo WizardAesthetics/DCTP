@@ -26,13 +26,22 @@ public class BuildCity : MonoBehaviour
     private static ArrayList buildingsArray;
 
 
-    // Start is called before the first frame update
+    /*
+     * Drawing the map using perlinose 
+     */
     void Start()
     {
         lacationArray = new ArrayList();
         buildingsArray = new ArrayList();
         mappgrid = new int[mapWidth, mapHeight];
-
+        if (index > 30)
+        {
+            seed = Random.Range(0, 100); //making a seed for random PerlinNoise offset
+        }
+        else
+        {
+            seed = index; //making a seed for random PerlinNoise offset
+        }
         for (int i =0; i< mapHeight; i++)
         {
             for (int j = 0; j < mapWidth; j++)
@@ -64,15 +73,6 @@ public class BuildCity : MonoBehaviour
             }
             z += Random.Range(3, 3);
             if (z >= mapHeight) break;
-        }
-
-        if (index > 30)
-        {
-           seed = Random.Range(0, 100); //making a seed for random PerlinNoise offset
-        }
-        else
-        {
-            seed = index; //making a seed for random PerlinNoise offset
         }
         for (int i = 0; i < mapHeight; i++)
         {
@@ -131,12 +131,18 @@ public class BuildCity : MonoBehaviour
         }
     }
 
-   public ArrayList getPosArray()
+   /*
+    * getting the locations of all the houses
+    */
+   public ArrayList GetPosArray()
    {
         return lacationArray;
    }
 
-    public ArrayList getBuildingsArray()
+    /*
+    * getting the builds that have been placed
+    */
+    public ArrayList GetBuildingsArray()
     {
         return buildingsArray;
     }

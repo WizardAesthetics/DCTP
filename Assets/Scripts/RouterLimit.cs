@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+* Class wrote my Eastern Michigan Univerity Computer Science Department
+* Team Lead: Krish Narayanan
+* Authurs: Blake Johnson, Joesph Stone, Sauel Grone 
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,19 +14,10 @@ using TMPro;
 public class RouterLimit : MonoBehaviour
 {
     public TextMeshProUGUI countText;
-
     public static int count2 = 4;
-
     public GameObject button;
-
     public GameObject image;
 
-    // Start is called before the first frame update
-    public void Start()
-    {
-       SetCountText();
-    }
-  
     public void SetCountText()
     {
        countText.text = "Sector Acess Point Limit: " + count2;
@@ -44,19 +41,28 @@ public class RouterLimit : MonoBehaviour
 
     }
 
+    /*
+     * Reduced the number of routers able to be used
+     */
     public void Reduce()
     {
-        count2 = count2 - 1;
+        count2--;
     }
 
-    public int getCount()
+    /*
+     * Gets the cnumber of routers available
+     */
+    public int GetCount()
     {
         return count2;
     }
 
-    public void setCount(int x)
+    /*
+     * Sets the number of Anntennas
+     */
+    public void SetCount(int x)
     {
-        count2 = count2 + x;
+        count2 += x;
     }
 
 }

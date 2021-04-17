@@ -1,17 +1,17 @@
-﻿using System.Collections;
+﻿/*
+* Class wrote my Eastern Michigan Univerity Computer Science Department
+* Team Lead: Krish Narayanan
+* Authurs: Blake Johnson, Joesph Stone, Sauel Grone 
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Delete : MonoBehaviour
 {
-    public string tag;
     private static ArrayList objectArrayReturn = new ArrayList();
     int num;
-    private FieldOfViewRed fieldOfView = new FieldOfViewRed();
-    private int count;
-
-
-
 
     public void DeleteObj(string tag)
     {
@@ -22,13 +22,13 @@ public class Delete : MonoBehaviour
         if(gameObjects[size].layer ==9)
         {
             if(Counter.count >0)
-                Counter.count = Counter.count - 1;
+                Counter.count--;
         }
        
 
         if (gameObjects[size].layer ==11)
         {
-            PlaceObject.limitRouter.setCount(1);
+            PlaceObject.limitRouter.SetCount(1);
         }
             
 
@@ -37,13 +37,15 @@ public class Delete : MonoBehaviour
         objectArrayReturn.RemoveAt(num - 1);
     }
 
-    public void setObjectArrayReturn(ArrayList objectArray)
+
+    public void SetObjectArrayReturn(ArrayList objectArray)
     {
         objectArrayReturn = objectArray;
         num = objectArrayReturn.Count;
     }
 
-    public ArrayList getObjectArrayReturn()
+
+    public ArrayList GetObjectArrayReturn()
     {
         num = objectArrayReturn.Count;
         return objectArrayReturn;

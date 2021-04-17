@@ -1,4 +1,10 @@
-﻿/* Line of sight code borrowed and adapted from Field of View tutorial by Sebastien Lague
+﻿/*
+* Class wrote my Eastern Michigan Univerity Computer Science Department
+* Team Lead: Krish Narayanan
+* Authurs: Blake Johnson, Joesph Stone, Sauel Grone 
+*/
+
+/* Line of sight code borrowed and adapted from Field of View tutorial by Sebastien Lague
    at https://github.com/SebLague/Field-of-view
    
    This code create a field around an object that allows detection of targets within the sight
@@ -85,7 +91,7 @@ public class FieldOfViewRed : MonoBehaviour
                 if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
                     visibleTargets.Add(target);
-                    counter.setCount(visibleTargets.Count);
+                    counter.SetCount();
                 }
             }
         }

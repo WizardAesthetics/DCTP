@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+* Class wrote my Eastern Michigan Univerity Computer Science Department
+* Team Lead: Krish Narayanan
+* Authurs: Blake Johnson, Joesph Stone, Sauel Grone 
+*/
+
+using System.Collections;
 using UnityEngine;
 using TMPro;
 
@@ -16,9 +22,8 @@ public class PlaceObject : MonoBehaviour
     private GameObject buildings;
     private ArrayList buildingsArray = new ArrayList();
     private Vector3 m_Size;
-    private static ArrayList objectArray = new ArrayList();
+    public static ArrayList objectArray = new ArrayList();
     private Delete delete = new Delete();
-    private int num;
     public TextMeshProUGUI countText;
 
     public static RouterLimit limitRouter = new RouterLimit();
@@ -29,10 +34,8 @@ public class PlaceObject : MonoBehaviour
     // Configurations set before first frame
     void Start()
     {
-
         Cursor.visible = false; // Cursor invisible while placing objects
         mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
-        //movePoint = gameObject.transform.position - GetMouseWorldPos();
         transform.position = new Vector3(GetMouseWorldPos().x, transform.position.y, GetMouseWorldPos().z);
 
 
@@ -67,8 +70,8 @@ public class PlaceObject : MonoBehaviour
         // When mouse is clicked, static object will spawn
         if (Input.GetMouseButton(0))
         {
-            lacationArray = city.getPosArray();
-            buildingsArray = city.getBuildingsArray();
+            lacationArray = city.GetPosArray();
+            buildingsArray = city.GetBuildingsArray();
 
             mZCoord = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
 
@@ -91,7 +94,7 @@ public class PlaceObject : MonoBehaviour
                             objectArray.Add(pos);
                             FOV.SetActive(false);
                         }
-                        if (prefab.layer == 11 && limitRouter.getCount() != 0)
+                        if (prefab.layer == 11 && limitRouter.GetCount() != 0)
                         {
 
                             limitRouter.Reduce();
@@ -100,8 +103,8 @@ public class PlaceObject : MonoBehaviour
                         Instantiate(prefab, pos, transform.rotation);
                         Destroy(gameObject); // Destroy object following cursor
                         Cursor.visible = true;
-                        delete.setObjectArrayReturn(objectArray);
-                        objectArray = delete.getObjectArrayReturn();
+                        delete.SetObjectArrayReturn(objectArray);
+                        objectArray = delete.GetObjectArrayReturn();
                         break;
                     }
                     else
@@ -121,7 +124,7 @@ public class PlaceObject : MonoBehaviour
                             FOV.SetActive(false);
                         }
 
-                        if (prefab.layer == 11 && limitRouter.getCount() != 0)
+                        if (prefab.layer == 11 && limitRouter.GetCount() != 0)
                         {
 
                             limitRouter.Reduce();
@@ -130,8 +133,8 @@ public class PlaceObject : MonoBehaviour
                         Instantiate(prefab, pos, transform.rotation);
                         Destroy(gameObject); // Destroy object following cursor
                         Cursor.visible = true;
-                        delete.setObjectArrayReturn(objectArray);
-                        objectArray = delete.getObjectArrayReturn();
+                        delete.SetObjectArrayReturn(objectArray);
+                        objectArray = delete.GetObjectArrayReturn();
                         break;
                     }
                 }
@@ -151,7 +154,6 @@ public class PlaceObject : MonoBehaviour
 
     public ArrayList getObjectArray()
     {
-        num = objectArray.Count;
         return objectArray;
     }
 

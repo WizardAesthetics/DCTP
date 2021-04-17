@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+* Class wrote my Eastern Michigan Univerity Computer Science Department
+* Team Lead: Krish Narayanan
+* Authurs: Blake Johnson, Joesph Stone, Sauel Grone 
+*/
+
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Security.Cryptography;
@@ -18,10 +24,6 @@ public class ThirdPCam : MonoBehaviour
     public float zoomSpeed;
     public float rotateSpeed = 0.1f;
 
-
-    Vector2 p1;
-    Vector2 p2;
-
     public Camera cam;
 
     private void Awake()
@@ -29,7 +31,9 @@ public class ThirdPCam : MonoBehaviour
         cam = Camera.main;
     }
 
-    // Update is called once per frame
+    /*
+    * Looking for what button is being push to either rotate zoom o
+    */
     void Update()
     {
         if (Input.GetMouseButton(2)) //Allows user to rotate camera with middle mouse wheel
@@ -57,26 +61,10 @@ public class ThirdPCam : MonoBehaviour
 
         Zoom();
     }
+
     /*
-
-    // Uses middle mouse scroll button to rotate screen
-    void Rotate()
-    {
-        if (Input.GetMouseButtonDown(2))
-        {
-            p1 = Input.mousePosition;
-        }
-
-        if (Input.GetMouseButton(2))
-        {
-            p2 = Input.mousePosition;
-            float dx = (p2 - p1).x * rotateSpeed * Time.deltaTime;
-            float dy = (p2 - p1).y * rotateSpeed * Time.deltaTime;
-            transform.rotation *= Quaternion.Euler(new Vector3(0, dx, 0));
-        }
-    }
-    */
-
+     * Zooms in the cammera 
+     */
     void Zoom()
     {
         if (cam.orthographic)

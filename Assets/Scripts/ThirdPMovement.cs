@@ -1,7 +1,8 @@
-﻿/* This script controls movement, rotation, and zooming
-
-  of camera while in third person */
-
+﻿/*
+* Class wrote my Eastern Michigan Univerity Computer Science Department
+* Team Lead: Krish Narayanan
+* Authurs: Blake Johnson, Joesph Stone, Sauel Grone 
+*/
 
 using System.Collections;
 using System.Collections.Generic;
@@ -14,8 +15,9 @@ public class ThirdPMovement : MonoBehaviour
     public CharacterController controller;
     public float speed = 12f;
 
-    // Update is called once per frame
-
+    /*
+     * moving the camera based on WASD input
+     */
     void Update()
     {
 

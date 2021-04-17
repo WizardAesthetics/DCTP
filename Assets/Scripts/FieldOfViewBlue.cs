@@ -1,4 +1,10 @@
-﻿/* Line of sight code borrowed and adapted from Field of View tutorial by Sebastien Lague
+﻿/*
+* Class wrote my Eastern Michigan Univerity Computer Science Department
+* Team Lead: Krish Narayanan
+* Authurs: Blake Johnson, Joesph Stone, Sauel Grone 
+*/
+
+/* Line of sight code borrowed and adapted from Field of View tutorial by Sebastien Lague
    at https://github.com/SebLague/Field-of-view
    
    This code create a field around an object that allows detection of targets within the sight
@@ -28,16 +34,11 @@ public class FieldOfViewBlue : MonoBehaviour
     // GameObjects that act as obstalces need to have their layer changed to target
     public LayerMask targetMask;
     public LayerMask obstacleMask;
-
     public List<Transform> visibleTargets = new List<Transform>();
-
     public float meshResolution; // 10 is a good value
     public int edgeResolveIterations;
     public float edgeDstThreshold; // 0.5
     public static Counter counter = new Counter();
-
-
-    // 
     public MeshFilter viewMeshFilter;
     Mesh viewMesh;
 
@@ -45,8 +46,10 @@ public class FieldOfViewBlue : MonoBehaviour
     // Runs when scene loads
     void Start()
     {
-        viewMesh = new Mesh();
-        viewMesh.name = "View Mesh";
+        viewMesh = new Mesh
+        {
+            name = "View Mesh"
+        };
         viewMeshFilter.mesh = viewMesh;
 
         StartCoroutine("FindTargetsWithDelay", .2f);
