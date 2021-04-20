@@ -1009,7 +1009,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Antannae
+  m_text: Antennae
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1143,7 +1143,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Camera Movement\nAntannae Rotation                                                    
+  m_text: "Camera Movement\nAntennae Rotation                                                    
     \nCamera Rotation\nCamera Rotation (Alternate Key)\t\t\nResume\t\t"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1681,7 +1681,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.036479168, y: 0.02340741}
   m_AnchorMax: {x: 0.036479168, y: 0.02340741}
-  m_AnchoredPosition: {x: -57.80005, y: 16}
+  m_AnchoredPosition: {x: -57.799988, y: 16}
   m_SizeDelta: {x: 120, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1066374885
@@ -2466,7 +2466,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_NormalColor: {r: 0, g: 0, b: 0, a: 0.1254902}
     m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.20392157}
     m_PressedColor: {r: 0, g: 0, b: 0, a: 0.6039216}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -2489,7 +2489,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1320560368}
+      - m_Target: {fileID: 0}
         m_MethodName: Resume
         m_Mode: 1
         m_Arguments:
@@ -2985,8 +2985,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.7785625, y: 0.41200003}
   m_AnchorMax: {x: 0.7785625, y: 0.41200003}
-  m_AnchoredPosition: {x: 48, y: 0.024291992}
-  m_SizeDelta: {x: 692.3928, y: 199.90784}
+  m_AnchoredPosition: {x: 38.2, y: -2.7668}
+  m_SizeDelta: {x: 712.07886, y: 194.32553}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1856079681
 MonoBehaviour:
@@ -3008,7 +3008,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Sector Access Point \n\nCustomer Premises Device \"CPD\"\n\nOmni Directional
-    Mesh Antenae \"Public Hotspot\""
+    Mesh Antennae \"Public Hotspot\""
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
